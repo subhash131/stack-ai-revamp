@@ -5,7 +5,7 @@ import CenterDiv from "./center-div";
 
 const Features = () => {
   return (
-    <div className="size-full min-h-screen pt-16 px-20 backdrop-blur-lg flex justify-center relative">
+    <div className="size-full min-h-screen backdrop-blur-lg flex justify-center relative pt-20">
       <LeftDiv />
       <CenterDiv />
       <RightDiv />

@@ -11,8 +11,8 @@ const CenterDiv = () => {
 
   const initialState = useMotionValue(1);
   const scale = useTransform(scrollYProgress, [1, 0], [1, 3]);
-  const rotate = useTransform(scrollYProgress, [0.5, 1], ["0deg", "40deg"]);
-  const marginTop = useTransform(scrollYProgress, [1, 0], ["100px", "200px"]);
+  const rotate = useTransform(scrollYProgress, [0.5, 1], ["0deg", "0deg"]);
+  const marginTop = useTransform(scrollYProgress, [1, 0], ["-10px", "300px"]);
 
   return (
     <motion.div
