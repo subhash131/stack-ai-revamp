@@ -40,7 +40,7 @@ const CenterDiv = () => {
 
   return (
     <motion.div
-      className="size-1/3 rounded-lg rotate-12 border overflow-hidden shadow-2xl transition-all"
+      className="size-1/3 rounded-lg rotate-12 border overflow-hidden shadow-2xl transition-all z-10"
       style={{
         scale,
         rotate,
