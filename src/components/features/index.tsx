@@ -10,7 +10,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 const Features = () => {
   return (
     <>
-      <div className="size-full min-h-screen backdrop-blur-lg flex justify-center relative pt-20">
+      <div className="size-full min-h-screen backdrop-blur-lg flex justify-center relative pt-24">
         <LeftDiv />
         <RightDiv />
         <CenterDiv />
