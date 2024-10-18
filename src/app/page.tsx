@@ -1,4 +1,5 @@
 "use client";
+import AiSolution from "@/components/ai-solution";
 import Features from "@/components/features";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";

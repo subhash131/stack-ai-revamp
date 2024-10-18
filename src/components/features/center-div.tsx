@@ -24,9 +24,8 @@ const CenterDiv = () => {
     mass: 0.1,
   });
 
-  const scale = useTransform(smoothYProgress, [1, 0.7], [1, 1.5]);
-  const rotate = useTransform(smoothYProgress, [0.5, 1], ["0deg", "0deg"]);
-  const marginTop = useTransform(smoothYProgress, [1, 0.6], ["-10px", "200px"]);
+  const scale = useTransform(smoothYProgress, [1, 0.7], [1.05, 1.5]);
+  const marginTop = useTransform(smoothYProgress, [1, 0.6], ["-10px", "150px"]);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const inView = useInView(divRef);
@@ -40,10 +39,9 @@ const CenterDiv = () => {
 
   return (
     <motion.div
-      className="size-1/3 rounded-lg rotate-12 border overflow-hidden shadow-2xl transition-all z-10"
+      className="size-1/3 rounded-lg rotate-12 border overflow-hidden shadow-2xl transition-all"
       style={{
         scale,
-        rotate,
         marginTop,
       }}
       transition={{ ease: "linear", duration: 1 }}

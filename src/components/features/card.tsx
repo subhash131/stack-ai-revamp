@@ -25,7 +25,7 @@ const Card = ({ icon: Icon, mp4Url, name, poster, webmUrl }: CardProp) => {
   }, [inView]);
 
   return (
-    <div className="size-1/3 rounded-lg scale-150 mt-52 border overflow-hidden shadow-2xl transition-all">
+    <div className="shrink-0 size-1/3 rounded-lg scale-150 mt-52 border overflow-hidden shadow-2xl transition-all">
       <div className="bg-gray-300 p-1 rounded-lg">
         <video
           poster={poster}
