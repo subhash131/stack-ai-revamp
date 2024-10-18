@@ -1,6 +1,13 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import Image from "next/image";
 
 const LeftDiv = () => {
   const divRef = useRef(null);
@@ -9,15 +16,20 @@ const LeftDiv = () => {
     offset: ["center start", "center end"],
   });
 
+  const smoothYProgress = useSpring(scrollYProgress, {
+    restDelta: 0.0001,
+    bounce: 0.01,
+  });
+
   const initialState = useMotionValue(1);
-  const scale = useTransform(scrollYProgress, [0, 1], [0, 1.5]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1.5]);
-  const rotate = useTransform(scrollYProgress, [0.5, 1], ["-40deg", "20deg"]);
-  const marginLeft = useTransform(scrollYProgress, [1, 0], ["100px", "-500px"]);
+  const scale = useTransform(smoothYProgress, [0, 1], [0, 1.5]);
+  const opacity = useTransform(smoothYProgress, [0, 1], [0, 1.5]);
+  const rotate = useTransform(smoothYProgress, [0.5, 1], ["-40deg", "20deg"]);
+  const marginLeft = useTransform(smoothYProgress, [1, 0], ["100px", "-500px"]);
 
   return (
     <motion.div
-      className="h-72 w-96 bg-red-50 rounded-lg absolute left-32 mt-16"
+      className="h-60 w-96 rounded-lg absolute left-32 mt-16 shadow-2xl bg-gray-300 p-1"
       style={{
         scale: scale.get() >= 1 ? scale : initialState,
         rotate,
@@ -25,7 +37,30 @@ const LeftDiv = () => {
         opacity,
       }}
       ref={divRef}
-    ></motion.div>
+    >
+      <Image
+        src="https://d3ouvrmelntobn.cloudfront.net/interface-tab-poster.png"
+        width={1}
+        height={1}
+        className="size-full object-cover rounded-md"
+        alt=""
+      />
+      {/* <video
+        poster="https://d3ouvrmelntobn.cloudfront.net/interface-tab-poster.png"
+        className="size-full object-cover rounded-md"
+        muted
+      >
+        <source
+          src="https://d3ouvrmelntobn.cloudfront.net/interface-tab.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://d3ouvrmelntobn.cloudfront.net/interface-tab.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video> */}
+    </motion.div>
   );
 };
 

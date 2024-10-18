@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <div className="w-screen h-fit flex flex-col items-center justify-center pt-32 -z-10 sticky top-0">
+    <div className="w-screen h-fit flex flex-col items-center justify-center pt-32 sticky top-0">
       <div className="size-full flex flex-col items-center justify-center gap-2 ">
         <div className="mb-2 w-fit px-4 py-2 rounded-full border border-gray-300 cursor-pointer active:scale-95 transition-transform">
           <p className="text-sm">
