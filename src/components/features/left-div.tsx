@@ -43,7 +43,7 @@ const LeftDiv = () => {
         width={1}
         height={1}
         className="size-full object-cover rounded-md"
-        alt=""
+        alt="interface"
       />
       {/* <video
         poster="https://d3ouvrmelntobn.cloudfront.net/interface-tab-poster.png"

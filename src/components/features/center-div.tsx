@@ -1,8 +1,8 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   motion,
-  useMotionValue,
+  useInView,
   useScroll,
   useSpring,
   useTransform,
@@ -12,6 +12,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 const CenterDiv = () => {
   const divRef = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["center start", "center end"],
@@ -26,6 +27,16 @@ const CenterDiv = () => {
   const scale = useTransform(smoothYProgress, [1, 0.7], [1, 1.5]);
   const rotate = useTransform(smoothYProgress, [0.5, 1], ["0deg", "0deg"]);
   const marginTop = useTransform(smoothYProgress, [1, 0.6], ["-10px", "200px"]);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const inView = useInView(divRef);
+  useEffect(() => {
+    if (inView) {
+      videoRef.current?.play();
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [inView]);
 
   return (
     <motion.div
@@ -45,7 +56,7 @@ const CenterDiv = () => {
           loop
           playsInline
           muted
-          autoPlay
+          ref={videoRef}
         >
           <source
             src="https://d3ouvrmelntobn.cloudfront.net/builder-tab.webm"
